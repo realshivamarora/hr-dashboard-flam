@@ -1,4 +1,4 @@
-// src/app/layout.tsx
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Top Navbar */}
         <nav
           className="navbar navbar-expand-lg px-4"
           style={{ backgroundColor: '#1c193e' }}
@@ -28,10 +27,8 @@ export default function RootLayout({
           </Link>
         </nav>
 
-        {/* Layout Body */}
         <div className="container-fluid">
           <div className="row">
-            {/* Sidebar */}
             <div className="col-md-2 bg-light min-vh-100 p-3">
               <ul className="nav flex-column">
                 <li className="nav-item">
@@ -64,7 +61,6 @@ export default function RootLayout({
               </ul>
             </div>
 
-            {/* Main Content */}
             <div className="col-md-10 p-4">{children}</div>
           </div>
         </div>

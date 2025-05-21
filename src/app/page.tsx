@@ -47,7 +47,6 @@ export default function Dashboard() {
       });
   }, []);
 
-  // Filter users based on search and filters
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {
       const searchText = searchTerm.toLowerCase();
@@ -67,14 +66,12 @@ export default function Dashboard() {
     });
   }, [users, searchTerm, selectedDepartments, selectedRatings]);
 
-  // Toggle department selection
   const toggleDepartment = (dept: string) => {
     setSelectedDepartments((prev) =>
       prev.includes(dept) ? prev.filter((d) => d !== dept) : [...prev, dept]
     );
   };
 
-  // Toggle rating selection
   const toggleRating = (rating: number) => {
     setSelectedRatings((prev) =>
       prev.includes(rating) ? prev.filter((r) => r !== rating) : [...prev, rating]
@@ -85,7 +82,6 @@ export default function Dashboard() {
     <div>
       <h2 className="mb-4">Employee Dashboard</h2>
 
-      {/* Search Bar */}
       <div className="mb-3">
         <input
           type="search"
@@ -96,9 +92,7 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Filters */}
       <div className="mb-4 d-flex flex-wrap gap-3">
-        {/* Department Filter */}
         <div>
           <label className="form-label fw-bold">Filter by Department:</label>
           <div>
@@ -119,7 +113,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Rating Filter */}
         <div>
           <label className="form-label fw-bold">Filter by Rating:</label>
           <div>
@@ -141,7 +134,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* User Cards */}
       <div className="row">
         {filteredUsers.length === 0 ? (
           <p>No users match your criteria.</p>

@@ -19,7 +19,6 @@ export default function AnalyticsPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch users (same API) + mock rating + department
   useEffect(() => {
     fetch('https://dummyjson.com/users?limit=20')
       .then((res) => res.json())
@@ -37,7 +36,6 @@ export default function AnalyticsPage() {
 
   if (loading) return <p>Loading analytics...</p>;
 
-  // Calculate department-wise average rating
   const deptRatings: Record<string, { total: number; count: number }> = {};
   users.forEach(({ department, rating }) => {
     if (!deptRatings[department]) deptRatings[department] = { total: 0, count: 0 };
@@ -50,20 +48,18 @@ export default function AnalyticsPage() {
     (d) => deptRatings[d].total / deptRatings[d].count
   );
 
-  // Mock bookmark trends data for last 6 months
   const bookmarkTrendLabels = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'];
   const bookmarkTrendData = bookmarkTrendLabels.map(
     () => Math.floor(Math.random() * bookmarks.length)
   );
 
-  // Chart.js datasets
   const barData = {
     labels: departments,
     datasets: [
       {
         label: 'Average Performance Rating',
         data: avgRatings,
-        backgroundColor: 'rgba(13, 110, 253, 0.7)', // Bootstrap primary blue
+        backgroundColor: 'rgba(13, 110, 253, 0.7)', 
       },
     ],
   };
@@ -75,7 +71,7 @@ export default function AnalyticsPage() {
         label: 'Bookmarks Over Time',
         data: bookmarkTrendData,
         fill: false,
-        borderColor: 'rgba(220, 53, 69, 0.7)', // Bootstrap danger red
+        borderColor: 'rgba(220, 53, 69, 0.7)', 
         tension: 0.3,
       },
     ],

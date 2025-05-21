@@ -44,20 +44,16 @@ export default function Dashboard() {
 
   return (
     <div>
-      {/* Centered heading */}
       <h2 className="mb-4 text-center">Employee Dashboard</h2>
 
-      {/* Search input (placeholder) */}
       <div className="mb-4">
         <input
           type="text"
           className="form-control"
           placeholder="Search employees..."
-          // You can add onChange handler here for search functionality
         />
       </div>
 
-      {/* Filters stacked vertically */}
       <div className="mb-4">
         <div className="mb-3">
           <label htmlFor="filterDepartment" className="form-label fw-semibold">
@@ -88,7 +84,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* User cards grid */}
       <div className="row">
         {users.map((user) => (
           <div className="col-md-4 mb-4" key={user.id}>
