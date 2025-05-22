@@ -94,15 +94,6 @@ Visit localhost:3000 to view the app.
 
 ---
 
-## Build for Production
-
-```bash
-npm run build
-npm start
-```
-
----
-
 ## Author
 Made with ❤️ by Shivam Arora
 Learn more at [aroratech.tech](https://arpratech.tech)
