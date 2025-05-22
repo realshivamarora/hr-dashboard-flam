@@ -46,7 +46,7 @@ src/
 
 ---
 
-## etting Started
+## Getting Started
 
 ### 1. Clone the Repo
 
@@ -55,5 +55,41 @@ git clone https://github.com/your-username/hr-dashboard.git
 cd hr-dashboard
 ```
 
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Visit localhost:3000 to view the app.
+
 ---
 
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## Live Demo
+
+
+---
+
+## Author
+Made with ❤️ by Shivam Arora
+Learn more at https://aroratech.tech
+
+---
+
+## License
+This project is licensed under the MIT License.
