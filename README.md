@@ -9,6 +9,29 @@ A responsive and elegant mini HR Performance Dashboard built using **Next.js 14*
 ---
 
 ## Screenshots
+#### Dashboard
+![image](https://github.com/user-attachments/assets/2433704e-768f-4b53-ac51-19b5e4198e05)
+
+#### Filter by Department
+![image](https://github.com/user-attachments/assets/5ce7572d-c827-45ed-af9a-5e726f2e5c34)
+
+#### Filter by Rating
+![image](https://github.com/user-attachments/assets/0197c1a1-0215-47ca-89b4-45754d671dbf)
+
+#### Filter by both Department and Rating
+![image](https://github.com/user-attachments/assets/6027f3f4-4eb2-4423-b849-965e93af9bfb)
+
+#### Bookmark Feature
+![image](https://github.com/user-attachments/assets/997dea05-39da-42ae-a374-a23ecf9fd0ff)
+
+#### List of Bookmarks
+![image](https://github.com/user-attachments/assets/bbc02d53-a0b5-4c73-b33e-babf18a0a605)
+
+#### Analytics - Department-wise Average Ratings
+![image](https://github.com/user-attachments/assets/aca74898-0d91-4a74-b90c-df1d1dfd6394)
+
+#### Analytics - Bookmark Trends (last 6 months)
+![image](https://github.com/user-attachments/assets/dad5b2c1-5029-41ba-86c2-a2e24d181600)
 
 ---
 
@@ -80,14 +103,9 @@ npm start
 
 ---
 
-## Live Demo
-
-
----
-
 ## Author
 Made with ❤️ by Shivam Arora
-Learn more at https://aroratech.tech
+Learn more at [aroratech.tech](https://arpratech.tech)
 
 ---
 
