@@ -7,54 +7,42 @@ type Performance = {
   rating: number;
 };
 
+type Props = {
+  performanceHistory: Performance[];
+};
+
 function starRating(rating: number) {
   return (
     <>
       <span style={{ color: '#ffc107' }}>{'★'.repeat(rating)}</span>
-      <span style={{ color: '#e4e5e9' }}>{'★'.repeat(5 - rating)}</span>
+      <span style={{ color: '#ced4da' }}>{'★'.repeat(5 - rating)}</span>
     </>
   );
 }
 
-export default function UserTabs({ performanceHistory }: { performanceHistory: Performance[] }) {
+export default function UserTabs({ performanceHistory }: Props) {
   const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'feedback'>('overview');
 
   return (
     <>
       <ul className="nav nav-tabs mb-3" role="tablist">
-        <li className="nav-item" role="presentation">
-          <button
-            className={`nav-link ${activeTab === 'overview' ? 'active' : ''}`}
-            onClick={() => setActiveTab('overview')}
-            type="button"
-            role="tab"
-          >
-            Overview
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className={`nav-link ${activeTab === 'projects' ? 'active' : ''}`}
-            onClick={() => setActiveTab('projects')}
-            type="button"
-            role="tab"
-          >
-            Projects
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className={`nav-link ${activeTab === 'feedback' ? 'active' : ''}`}
-            onClick={() => setActiveTab('feedback')}
-            type="button"
-            role="tab"
-          >
-            Feedback
-          </button>
-        </li>
+        {['overview', 'projects', 'feedback'].map((tab) => (
+          <li className="nav-item" role="presentation" key={tab}>
+            <button
+              className={`nav-link ${activeTab === tab ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab as typeof activeTab)}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === tab}
+              aria-controls={`tab-${tab}`}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          </li>
+        ))}
       </ul>
 
-      <div>
+      <div id={`tab-${activeTab}`}>
         {activeTab === 'overview' && (
           <div>
             <h5>Performance History</h5>
@@ -76,9 +64,9 @@ export default function UserTabs({ performanceHistory }: { performanceHistory: P
           <div>
             <h5>Projects</h5>
             <ul>
-              <li>Project Alpha - Completed</li>
-              <li>Project Beta - In Progress</li>
-              <li>Project Gamma - Upcoming</li>
+              <li>Project Alpha – Completed</li>
+              <li>Project Beta – In Progress</li>
+              <li>Project Gamma – Upcoming</li>
             </ul>
           </div>
         )}

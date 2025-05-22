@@ -29,7 +29,13 @@ export default function Dashboard() {
     fetch('https://dummyjson.com/users?limit=20')
       .then((res) => res.json())
       .then((data) => {
-        const enrichedUsers = data.users.map((user: any) => ({
+        const enrichedUsers = data.users.map((user: {
+          id: number;
+          firstName: string;
+          lastName: string;
+          email: string;
+          age: number;
+        }): User => ({
           id: user.id,
           firstName: user.firstName,
           lastName: user.lastName,

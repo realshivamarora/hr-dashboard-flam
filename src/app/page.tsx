@@ -28,24 +28,33 @@ export default function Dashboard() {
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>([]);
   const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
 
-  const { bookmarks, addBookmark, removeBookmark, isBookmarked } = useBookmarkStore();
+  const { addBookmark, removeBookmark, isBookmarked } = useBookmarkStore();
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/users?limit=20')
-      .then((res) => res.json())
-      .then((data) => {
-        const enrichedUsers = data.users.map((u: any) => ({
-          id: u.id,
-          firstName: u.firstName,
-          lastName: u.lastName,
-          email: u.email,
-          age: u.age,
-          department: getRandomDepartment(),
-          rating: getRandomRating(),
-        }));
-        setUsers(enrichedUsers);
-      });
-  }, []);
+  type ApiUser = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+};
+
+// Update useEffect
+useEffect(() => {
+  fetch('https://dummyjson.com/users?limit=20')
+    .then((res) => res.json())
+    .then((data) => {
+      const enrichedUsers = data.users.map((u: ApiUser) => ({
+        id: u.id,
+        firstName: u.firstName,
+        lastName: u.lastName,
+        email: u.email,
+        age: u.age,
+        department: getRandomDepartment(),
+        rating: getRandomRating(),
+      }));
+      setUsers(enrichedUsers);
+    });
+}, []);
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {

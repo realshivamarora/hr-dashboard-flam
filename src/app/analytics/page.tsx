@@ -24,7 +24,7 @@ export default function AnalyticsPage() {
       .then((res) => res.json())
       .then((data) => {
         const departments = ['Engineering', 'HR', 'Sales', 'Marketing', 'Finance'];
-        const usersWithExtras = data.users.map((u: any) => ({
+        const usersWithExtras = data.users.map((u: { id: number }): User => ({
           id: u.id,
           department: departments[Math.floor(Math.random() * departments.length)],
           rating: Math.floor(Math.random() * 5) + 1,

@@ -11,11 +11,30 @@ function getBadgeColor(rating: number) {
   return 'danger';
 }
 
+type PerformanceRecord = {
+  period: string;
+  rating: number;
+};
+
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+  phone: string;
+  department: string;
+  address: string;
+  bio: string;
+  rating: number;
+  performanceHistory: PerformanceRecord[];
+};
+
 export default function EmployeeDetails() {
   const params = useParams();
   const id = params?.id as string;
 
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -26,7 +45,7 @@ export default function EmployeeDetails() {
         const data = await res.json();
 
         const getRandomRating = () => Math.floor(Math.random() * 5) + 1;
-        const mockPerformanceHistory = () => [
+        const mockPerformanceHistory = (): PerformanceRecord[] => [
           { period: 'Q1 2024', rating: getRandomRating() },
           { period: 'Q4 2023', rating: getRandomRating() },
           { period: 'Q3 2023', rating: getRandomRating() },
@@ -34,7 +53,12 @@ export default function EmployeeDetails() {
         ];
 
         setUser({
-          ...data,
+          id: data.id,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          age: data.age,
+          phone: data.phone,
           department: ['Engineering', 'HR', 'Sales', 'Marketing', 'Finance'][Math.floor(Math.random() * 5)],
           address: `${data.address.address}, ${data.address.city}, ${data.address.state}, ${data.address.postalCode}`,
           bio: 'Passionate and dedicated employee with strong teamwork skills.',
