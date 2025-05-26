@@ -1,6 +1,3 @@
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import Link from 'next/link';
 import { ReactNode } from 'react';
